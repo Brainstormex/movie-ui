@@ -5,16 +5,18 @@ import Navbar from "./Navbar";
 import SeatBookingCard, { seatId } from "./SeatBookingCard";
 import TicketCard from "./TicketCard";
 
-export default function Maincontent() {
+export default function Maincontent({toggleSidebar}:{toggleSidebar:()=>void}) {
   const [selectedSeats, setSelectedSeats] = useState<seatId[]>([]);
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedMovie, setSelectedMovie] = useState<string | null>(null);
   const handleSelectMovie = (movieName: string) => {
     setSelectedMovie(movieName);
   };
+
+   
   return (
-    <div className="w-full h-screen flex flex-col relative pl-8">
-      <Navbar />
+    <div className="w-full h-full flex flex-col relative pl-8">
+      <Navbar toggleSidebar={toggleSidebar} open={false}/>
       <div className="flex gap-6">
         <div className="w-[70%] flex flex-col gap-2">
           <BannerHome />
