@@ -27,7 +27,7 @@ export default function Card({ props, onBook }: CardProps) {
       <h3 className="text-white text-sm">{props.name}</h3>
       <p className="text-neutral-500 text-xs">{props.description}</p>
       <div>
-        {[...Array(5)].map((star, starIndex) => {
+        {[...Array(5)].map((_star, starIndex) => {
           const currentRating = starIndex + 1;
           return (
             <label key={starIndex}>
